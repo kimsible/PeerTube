@@ -41,6 +41,7 @@ smtp:
     __name: "PEERTUBE_SMTP_DISABLE_STARTTLS"
     __format: "json"
   from_address: "PEERTUBE_SMTP_FROM"
+  dkim_selector: "PEERTUBE_DKIM_SELECTOR"
 
 user:
   video_quota:

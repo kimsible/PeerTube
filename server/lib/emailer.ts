@@ -50,6 +50,15 @@ class Emailer {
         }
       }
 
+      let dkim
+      if (CONFIG.SMTP.DKIM_SELECTOR && CONFIG.STORAGE.KEYS_DIR) {
+        dkim = {
+          domainName: CONFIG.WEBSERVER.HOSTNAME,
+          keySelector: CONFIG.SMTP.DKIM_SELECTOR,
+          privateKey: readFileSync(`${CONFIG.STORAGE.KEYS_DIR}${CONFIG.SMTP.DKIM_SELECTOR}.private`)
+        }
+      }
+
       let auth
       if (CONFIG.SMTP.USERNAME && CONFIG.SMTP.PASSWORD) {
         auth = {
@@ -66,6 +75,7 @@ class Emailer {
         logger: bunyanLogger as any,
         ignoreTLS: CONFIG.SMTP.DISABLE_STARTTLS,
         tls,
+        dkim,
         auth
       })
     } else {

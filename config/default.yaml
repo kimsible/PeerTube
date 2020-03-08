@@ -60,6 +60,7 @@ smtp:
   disable_starttls: false
   ca_file: null # Used for self signed certificates
   from_address: 'admin@example.com'
+  dkim_selector: null # DNS selector of TXT record containing DKIM public key
 
 email:
   body:
@@ -81,6 +82,7 @@ storage:
   captions: 'storage/captions/'
   cache: 'storage/cache/'
   plugins: 'storage/plugins/'
+  keys: 'storage/keys/'
 
 log:
   level: 'info' # debug/info/warning/error

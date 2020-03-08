@@ -61,6 +61,7 @@ smtp:
   disable_starttls: false
   ca_file: null # Used for self signed certificates
   from_address: 'admin@example.com'
+  dkim_selector: null # DNS selector of TXT record containing DKIM public key
 
 email:
   body:
@@ -82,6 +83,7 @@ storage:
   captions: '/var/www/peertube/storage/captions/'
   cache: '/var/www/peertube/storage/cache/'
   plugins: '/var/www/peertube/storage/plugins/'
+  keys: '/var/www/peertube/storage/keys/'
 
 log:
   level: 'info' # debug/info/warning/error

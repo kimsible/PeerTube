@@ -42,7 +42,8 @@ const CONFIG = {
     TLS: config.get<boolean>('smtp.tls'),
     DISABLE_STARTTLS: config.get<boolean>('smtp.disable_starttls'),
     CA_FILE: config.get<string>('smtp.ca_file'),
-    FROM_ADDRESS: config.get<string>('smtp.from_address')
+    FROM_ADDRESS: config.get<string>('smtp.from_address'),
+    DKIM_SELECTOR: config.get<string>('smtp.dkim_selector')
   },
   EMAIL: {
     BODY: {
@@ -64,7 +65,8 @@ const CONFIG = {
     CAPTIONS_DIR: buildPath(config.get<string>('storage.captions')),
     TORRENTS_DIR: buildPath(config.get<string>('storage.torrents')),
     CACHE_DIR: buildPath(config.get<string>('storage.cache')),
-    PLUGINS_DIR: buildPath(config.get<string>('storage.plugins'))
+    PLUGINS_DIR: buildPath(config.get<string>('storage.plugins')),
+    KEYS_DIR: buildPath(config.get<string>('storage.keys'))
   },
   WEBSERVER: {
     SCHEME: config.get<boolean>('webserver.https') === true ? 'https' : 'http',
