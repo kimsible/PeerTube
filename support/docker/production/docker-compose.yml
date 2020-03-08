@@ -67,9 +67,13 @@ services:
       traefik.enable: "false"
 
   postfix:
-    image: mwader/postfix-relay
+    build:
+      context: .
+      dockerfile: ./support/docker/production/Dockerfile.postfix
     env_file:
       - .env
+    volumes:
+      - ./docker-volume/opendkim/keys:/etc/opendkim/keys
     labels:
       traefik.enable: "false"
     restart: "always"

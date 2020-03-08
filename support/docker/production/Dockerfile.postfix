@@ -1,0 +1,8 @@
+# postfix image based on alpine
+FROM boky/postfix:latest
+RUN apk --update add --no-cache openssl
+
+ENV POSTFIX_HOSTNAME=localhost 
+
+COPY ./support/docker/production/entrypoint.postfix.sh /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
